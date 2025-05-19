@@ -1,8 +1,6 @@
 package org.eternity.script.movie.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -15,12 +13,24 @@ public class DiscountPolicy {
     public enum PolicyType {PERCENT_POLICY, AMOUNT_POLICY}
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "discount_seq_generator")
+    @SequenceGenerator(
+            name = "discount_seq_generator",        // Generator 이름 동일
+            sequenceName = "discount_seq",          // DB 시퀀스 동일
+            initialValue = 1,
+            allocationSize = 50
+    )
     private Long id;
+
     private Long movieId;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "policy_type", columnDefinition = "varchar(20)")
     private PolicyType policyType;
 
+    @Column
     private Long amount;
+    @Column
     private Double percent;
 
     public DiscountPolicy(Long movieId, PolicyType policyType, Long amount, Double percent) {

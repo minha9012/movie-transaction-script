@@ -1,8 +1,6 @@
 package org.eternity.script.movie.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.DayOfWeek;
@@ -17,9 +15,13 @@ import java.time.LocalTime;
 @Entity
 public class Screening {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Long movieId;
+    @Column
     private Integer sequence;
+    @Column(name = "screening_time")
     private LocalDateTime screeningTime;
 
     public Screening(Long movieId, Integer sequence, LocalDateTime screeningTime) {

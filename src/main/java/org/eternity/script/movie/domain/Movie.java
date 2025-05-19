@@ -1,8 +1,6 @@
 package org.eternity.script.movie.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -13,10 +11,15 @@ import lombok.*;
 @Table
 public class Movie {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long policyId;
+
+    @Column
     private String title;
+    @Column(name = "running_time")
     private Integer runningTime;
+    @Column
     private Long fee;
 
     public Movie(Long policyId, String title, Integer runningTime, Long fee) {
