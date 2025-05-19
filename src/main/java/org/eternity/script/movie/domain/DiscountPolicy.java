@@ -19,12 +19,9 @@ public class DiscountPolicy {
     private Long movieId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "policy_type", columnDefinition = "varchar(20)")
+    @Column(columnDefinition = "varchar(20)")
     private PolicyType policyType;
-
-    @Column
     private Long amount;
-    @Column
     private Double percent;
 
     public DiscountPolicy(Long movieId, PolicyType policyType, Long amount, Double percent) {

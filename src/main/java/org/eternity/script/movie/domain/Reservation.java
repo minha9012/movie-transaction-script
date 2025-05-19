@@ -22,9 +22,7 @@ public class Reservation {
     private Long id;
     private Long customerId;
     private Long screeningId;
-    @Column(name = "audience_count")
     private Integer audienceCount;
-    @Column
     private Long fee;
 
     public Reservation(Long customerId, Long screeningId, Integer audienceCount, Long fee) {

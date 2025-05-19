@@ -15,11 +15,8 @@ public class Movie {
     private Long id;
     private Long policyId;
 
-    @Column
     private String title;
-    @Column(name = "running_time")
     private Integer runningTime;
-    @Column
     private Long fee;
 
     public Movie(Long policyId, String title, Integer runningTime, Long fee) {

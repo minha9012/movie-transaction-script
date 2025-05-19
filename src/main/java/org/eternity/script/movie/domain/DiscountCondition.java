@@ -28,20 +28,15 @@ public class DiscountCondition {
     private Long policyId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "condition_type", columnDefinition = "varchar(20)")
+    @Column(columnDefinition = "varchar(20)")
     private ConditionType conditionType;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "day_of_week", columnDefinition = "varchar(10)")
+    @Column(columnDefinition = "varchar(10)")
     private DayOfWeek dayOfWeek;
 
-    @Column(name = "start_time")
     private LocalTime startTime;
-
-    @Column(name = "end_time")
     private LocalTime endTime;
-
-    @Column
     private Integer sequence;
 
     public DiscountCondition(Long policyId, ConditionType conditionType, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, Integer sequence) {

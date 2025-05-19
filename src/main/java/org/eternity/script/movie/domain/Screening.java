@@ -19,9 +19,7 @@ public class Screening {
     private Long id;
 
     private Long movieId;
-    @Column
     private Integer sequence;
-    @Column(name = "screening_time")
     private LocalDateTime screeningTime;
 
     public Screening(Long movieId, Integer sequence, LocalDateTime screeningTime) {
