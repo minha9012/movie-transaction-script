@@ -11,7 +11,7 @@ import lombok.*;
 @Entity
 @TableGenerator(
         name = "reservation_table",
-        table = "sequence_table",
+        table = "seq_table",
         pkColumnName = "seq_name",
         pkColumnValue = "reservation_seq",
         initialValue = 1, allocationSize = 20
