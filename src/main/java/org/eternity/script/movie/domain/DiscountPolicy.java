@@ -13,13 +13,7 @@ public class DiscountPolicy {
     public enum PolicyType {PERCENT_POLICY, AMOUNT_POLICY}
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "discount_seq_generator")
-    @SequenceGenerator(
-            name = "discount_seq_generator",        // Generator 이름 동일
-            sequenceName = "discount_seq",          // DB 시퀀스 동일
-            initialValue = 1,
-            allocationSize = 50
-    )
+    @GeneratedValue(generator = "discount_seq_generator")
     private Long id;
 
     private Long movieId;

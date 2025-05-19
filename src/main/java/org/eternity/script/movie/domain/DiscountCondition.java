@@ -12,17 +12,17 @@ import java.time.LocalTime;
 @Setter
 @Table
 @Entity
+@SequenceGenerator(
+        name = "discount_seq_generator",        // Generator 이름 동일
+        sequenceName = "discount_seq",          // DB 시퀀스 동일
+        initialValue = 1,
+        allocationSize = 50
+)
 public class DiscountCondition {
     public enum ConditionType {PERIOD_CONDITION, SEQUENCE_CONDITION}
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "discount_seq_generator")
-    @SequenceGenerator(
-            name = "discount_seq_generator",        // Generator 이름 동일
-            sequenceName = "discount_seq",          // DB 시퀀스 동일
-            initialValue = 1,
-            allocationSize = 50
-    )
     private Long id;
 
     private Long policyId;
