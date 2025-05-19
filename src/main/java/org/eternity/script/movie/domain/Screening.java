@@ -1,5 +1,7 @@
 package org.eternity.script.movie.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -12,7 +14,9 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @Table
+@Entity
 public class Screening {
+    @Id
     private Long id;
     private Long movieId;
     private Integer sequence;

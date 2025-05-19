@@ -1,5 +1,7 @@
 package org.eternity.script.movie.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -8,7 +10,9 @@ import lombok.*;
 @Getter
 @Setter
 @Table
+@Entity
 public class Reservation {
+    @Id
     private Long id;
     private Long customerId;
     private Long screeningId;

@@ -1,5 +1,7 @@
 package org.eternity.script.movie.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -11,9 +13,11 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @Table
+@Entity
 public class DiscountCondition {
     public enum ConditionType {PERIOD_CONDITION, SEQUENCE_CONDITION}
 
+    @Id
     private Long id;
     private Long policyId;
 
