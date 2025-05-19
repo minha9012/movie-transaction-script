@@ -1,11 +1,15 @@
 package org.eternity.script.movie.domain;
 
+import jakarta.persistence.Table;
 import lombok.*;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED) @AllArgsConstructor
-@Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Getter
+@Setter
+@Table
 public class DiscountPolicy {
-    public enum PolicyType { PERCENT_POLICY, AMOUNT_POLICY }
+    public enum PolicyType {PERCENT_POLICY, AMOUNT_POLICY}
 
     private Long id;
     private Long movieId;

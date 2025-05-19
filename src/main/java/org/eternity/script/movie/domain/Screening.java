@@ -1,13 +1,17 @@
 package org.eternity.script.movie.domain;
 
+import jakarta.persistence.Table;
 import lombok.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED) @AllArgsConstructor
-@Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Getter
+@Setter
+@Table
 public class Screening {
     private Long id;
     private Long movieId;
@@ -21,8 +25,6 @@ public class Screening {
     }
 
     public boolean isPlayedIn(DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime) {
-        return this.screeningTime.getDayOfWeek().equals(dayOfWeek) &&
-                (this.screeningTime.toLocalTime().equals(startTime) || this.screeningTime.toLocalTime().isAfter(startTime)) &&
-                (this.screeningTime.toLocalTime().equals(endTime) || this.screeningTime.toLocalTime().isBefore(endTime));
+        return this.screeningTime.getDayOfWeek().equals(dayOfWeek) && (this.screeningTime.toLocalTime().equals(startTime) || this.screeningTime.toLocalTime().isAfter(startTime)) && (this.screeningTime.toLocalTime().equals(endTime) || this.screeningTime.toLocalTime().isBefore(endTime));
     }
 }

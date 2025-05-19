@@ -1,9 +1,13 @@
 package org.eternity.script.movie.domain;
 
+import jakarta.persistence.Table;
 import lombok.*;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED) @AllArgsConstructor
-@Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Getter
+@Setter
+@Table
 public class Reservation {
     private Long id;
     private Long customerId;

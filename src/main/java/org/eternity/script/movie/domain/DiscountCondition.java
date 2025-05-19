@@ -1,14 +1,18 @@
 package org.eternity.script.movie.domain;
 
+import jakarta.persistence.Table;
 import lombok.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED) @AllArgsConstructor
-@Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Getter
+@Setter
+@Table
 public class DiscountCondition {
-    public enum ConditionType { PERIOD_CONDITION, SEQUENCE_CONDITION }
+    public enum ConditionType {PERIOD_CONDITION, SEQUENCE_CONDITION}
 
     private Long id;
     private Long policyId;
@@ -28,6 +32,7 @@ public class DiscountCondition {
         this.endTime = endTime;
         this.sequence = sequence;
     }
+
     public boolean isPeriodCondition() {
         return ConditionType.PERIOD_CONDITION.equals(conditionType);
     }
