@@ -31,20 +31,14 @@ public class DiscountCondition {
     @Column(columnDefinition = "varchar(20)")
     private ConditionType conditionType;
 
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "varchar(10)")
-    private DayOfWeek dayOfWeek;
-
-    private LocalTime startTime;
-    private LocalTime endTime;
     private Integer sequence;
+
+    private PlayTime playTime;
 
     public DiscountCondition(Long policyId, ConditionType conditionType, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, Integer sequence) {
         this.policyId = policyId;
         this.conditionType = conditionType;
-        this.dayOfWeek = dayOfWeek;
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.playTime = new PlayTime(dayOfWeek, new TimeInterval(startTime, endTime));
         this.sequence = sequence;
     }
 

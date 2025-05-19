@@ -52,9 +52,9 @@ public class ReservationService {
     private DiscountCondition findDiscountCondition(Screening screening, List<DiscountCondition> conditions) {
         for(DiscountCondition condition : conditions) {
             if (condition.isPeriodCondition()) {
-                if (screening.isPlayedIn(condition.getDayOfWeek(),
-                                         condition.getStartTime(),
-                                         condition.getEndTime())) {
+                if (screening.isPlayedIn(condition.getPlayTime().getDayOfWeek(),
+                                         condition.getPlayTime().getTimeInterval().getStartTime(),
+                                         condition.getPlayTime().getTimeInterval().getEndTime())) {
                     return condition;
                 }
             } else {

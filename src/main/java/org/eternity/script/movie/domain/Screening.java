@@ -29,6 +29,10 @@ public class Screening {
     }
 
     public boolean isPlayedIn(DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime) {
-        return this.screeningTime.getDayOfWeek().equals(dayOfWeek) && (this.screeningTime.toLocalTime().equals(startTime) || this.screeningTime.toLocalTime().isAfter(startTime)) && (this.screeningTime.toLocalTime().equals(endTime) || this.screeningTime.toLocalTime().isBefore(endTime));
+        return this.screeningTime.getDayOfWeek().equals(dayOfWeek) &&
+                (this.screeningTime.toLocalTime().equals(startTime) ||
+                        this.screeningTime.toLocalTime().isAfter(startTime)) &&
+                (this.screeningTime.toLocalTime().equals(endTime) ||
+                        this.screeningTime.toLocalTime().isBefore(endTime));
     }
 }
